@@ -67,5 +67,23 @@ const data = [
 
 $(document).ready(function() {
   renderTweets(data);
+
+  // form submission using jquery
+  // Add an event listener for submit(form) and prevent its default behaviour
+  $('#new-tweet-submit').on('submit', function(event) {
+    event.preventDefault();
+    // serialize the form data
+    const $serializedData = $(this).serialize();
+    console.log($serializedData);
+    // a POST request that sends the serialized data to the server as a query string
+    $.ajax({
+      method: "POST",
+      url: "/tweets",
+      data: $serializedData
+    })
+    .then(function (data) {
+      console.log("Success: ", data);
+    }) ;
+  });
 });
 
