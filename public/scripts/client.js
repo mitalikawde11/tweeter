@@ -76,8 +76,11 @@ $(document).ready(function() {
       data: $serializedData
     })
     .then(function (data) {
-      console.log("Success: ", data);
-    }) ;
+      $('#tweet-text').val("");
+      $('.counter').val(140)
+      // Refetching tweets on submission of new tweet
+      loadTweets();
+    });
   });
 
   loadTweets();
