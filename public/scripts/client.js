@@ -40,6 +40,15 @@ const renderTweets = function(tweets) {
   }
 };
 
+// fetching tweets from '/tweets' page using ajax GET request
+const loadTweets = function () {
+  console.log("loading tweets...");
+  $.ajax("/tweets/", { method: "GET" })
+  .then(function (tweets) {
+    renderTweets(tweets);
+  });
+};
+
 $(document).ready(function() {
   // form submission using jquery
   // Add an event listener for submit(form) and prevent its default behaviour
@@ -48,7 +57,19 @@ $(document).ready(function() {
     // serialize the form data
     const $serializedData = $(this).serialize();
     console.log($serializedData);
-    // a POST request that sends the serialized data to the server as a query string
+    
+    // Form validation
+    if (!$('#tweet-text').val()) {
+      $('#pError').html("Tweet content is not present").addClass("errorMsg");
+      return;
+    } else if ($('#tweet-text').val().length > 140) {
+      $('#pError').html("Tweet content is too long (140 charater limit)!").addClass("errorMsg");
+      return;
+    } else {
+      $('#pError').html("").removeClass("errorMsg");
+    }
+
+    // a POST request that sends the serialized data to the server as a query string if it passed validation
     $.ajax({
       method: "POST",
       url: "/tweets",
@@ -59,15 +80,7 @@ $(document).ready(function() {
     }) ;
   });
 
-  // fetching tweets from '/tweets' page using ajax GET request
-  const loadTweets = function () {
-    console.log("loading tweets...");
-    $.ajax("/tweets/", { method: "GET" })
-    .then(function (tweets) {
-      renderTweets(tweets);
-    });
-  };
-
   loadTweets();
+
 });
 
