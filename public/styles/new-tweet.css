@@ -34,3 +34,9 @@ button {
 .negativeVal {
   color: red;
 }
+
+.errorMsg {
+  color: red;
+  font-size: small;
+  font-weight: bold;
+}
