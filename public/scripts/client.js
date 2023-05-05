@@ -49,15 +49,19 @@ const loadTweets = function () {
   });
 };
 
+// escape function prevents XSS 
+const escape = function (str) {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
+
 $(document).ready(function() {
   // form submission using jquery
   // Add an event listener for submit(form) and prevent its default behaviour
   $('#new-tweet-submit').on('submit', function(event) {
     event.preventDefault();
-    // serialize the form data
-    const $serializedData = $(this).serialize();
-    console.log($serializedData);
-    
+
     // Form validation
     if (!$('#tweet-text').val()) {
       $('#pError').html("Tweet content is not present").addClass("errorMsg");
@@ -68,6 +72,13 @@ $(document).ready(function() {
     } else {
       $('#pError').html("").removeClass("errorMsg");
     }
+
+    // Preventing cross-site-scripting (XSS)
+    const $sanitizeData = escape($('#tweet-text').val());
+    $('#tweet-text').val($sanitizeData);
+    
+    // serialize the form data
+    const $serializedData = $(this).serialize();
 
     // a POST request that sends the serialized data to the server as a query string if it passed validation
     $.ajax({
