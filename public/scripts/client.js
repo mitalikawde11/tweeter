@@ -57,6 +57,7 @@ const escape = function (str) {
 };
 
 $(document).ready(function() {
+  $('.errorMsg').hide();
   // form submission using jquery
   // Add an event listener for submit(form) and prevent its default behaviour
   $('#new-tweet-submit').on('submit', function(event) {
@@ -64,13 +65,17 @@ $(document).ready(function() {
 
     // Form validation
     if (!$('#tweet-text').val()) {
-      $('#pError').html("Tweet content is not present").addClass("errorMsg");
+      $('.errorMsg').hide();
+      $('#error').text('Empty tweet. Please enter valid tweet content to tweet')
+      $('.errorMsg').slideDown(200);
       return;
     } else if ($('#tweet-text').val().length > 140) {
-      $('#pError').html("Tweet content is too long (140 charater limit)!").addClass("errorMsg");
+      $('.errorMsg').hide();
+      $('#error').text("Too long. Please respect the tweet limit of 140 characters!")
+      $('.errorMsg').slideDown(200);
       return;
     } else {
-      $('#pError').html("").removeClass("errorMsg");
+      $('.errorMsg').slideUp(200);
     }
 
     // Preventing cross-site-scripting (XSS)
