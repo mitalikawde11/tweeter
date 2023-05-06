@@ -1,5 +1,5 @@
 nav {
-  position: fixed;
+  position:fixed;
   width: 100%;
   height: 120px;
   display: flex;
@@ -9,7 +9,7 @@ nav {
   padding-right: 1.5em;
   font-family: 'Bungee', cursive;
   font-size: 30px;
-  background-color: #4056A1;
+  background-color: transparent;
   color: #FFFFFF;
 }
 
@@ -17,17 +17,14 @@ nav li {
   display: flex;
   align-items: center;     /* center align the elements in the container */
   flex-direction: column;  /* make the child elements appear one under another */
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 18px;
 }
 
-.newTweet {
-  font-family: 'Source Sans Pro', sans-serif;
-  font-size: 24px;
- }
+.liBold {
+  font-weight: bold;
+}
 
- .fa-solid {
+.fa-solid {
   color: red;
  }
-
- 
-
-  
