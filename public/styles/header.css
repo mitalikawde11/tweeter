@@ -11,7 +11,13 @@ header.pageHeader {
   color: #FFFFFF;
 }
 
-h2 {
-  margin-top: 0px;
-  margin-bottom: 0px;
+.headerName {
+  font-size: 27px;
+  display: flex;
+  padding-top: 10px;
 }
+
+.headerNameBold {
+  font-weight: bold;
+}
+
