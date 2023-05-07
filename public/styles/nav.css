@@ -15,8 +15,8 @@ nav {
 
 nav li {
   display: flex;
-  align-items: center;     /* center align the elements in the container */
-  flex-direction: column;  /* make the child elements appear one under another */
+  align-items: center;     
+  flex-direction: column;  
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 18px;
 }
