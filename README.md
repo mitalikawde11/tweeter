@@ -17,7 +17,7 @@ Error displays when user submits empty tweet or exceeds charcters limit.
 
 
 `Screensshot of responsive design`:
-Supports the responsive design. This screenshot is a Mobile style view. For tablet and desktop it changes view(above images are tablet, desktop styles).
+Supports the responsive design. This screenshot is a Mobile style view. For tablet and desktop it changes view(above images are desktop styles).
 !["Screenshot of responsive design (Mobile style)"](https://github.com/mitalikawde11/tweeter/blob/master/docs/mobile_style.png?raw=true)
 
 
