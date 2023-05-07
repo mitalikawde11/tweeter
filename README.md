@@ -5,13 +5,19 @@ Tweeter is a simple, single-page Twitter clone.
 This repository is the starter code for the project: Students will fork and clone this repository, then build upon it to practice their HTML, CSS, JS, jQuery and AJAX front-end skills, and their Node, Express back-end skills.
 
 ## Screenshots:
-
+`Screenshot of tweet compose box and tweet box`: User can compose tweet in compose box. When user submit tweet, submitted tweet will appear right below the compose tweet.
+In a tweet box you can see the recently posted tweet first, posted time, user name, img. You can see a shadow box effect when hover over tweet box and icons color changes when hover over icons.
 !["Screenshot of tweet compose box and tweets"](https://github.com/mitalikawde11/tweeter/blob/master/docs/tweet_box.png?raw=true)
 
 
+`Screenshot of compose tweet validation`:
+There is a limit of 140 characters for composing tweet. Char counter shows the remaining characters as you type. If user exceeds limit then counter shows the negative red value. 
+Error displays when user submits empty tweet or exceeds charcters limit.  
 !["Screenshot of compose tweet validation"](https://github.com/mitalikawde11/tweeter/blob/master/docs/form_validation.png?raw=true)
 
 
+`Screensshot of responsive design`:
+Supports the responsive design. This screenshot is a Mobile style view. For tablet and desktop it changes view(above images are tablet, desktop styles).
 !["Screenshot of responsive design (Mobile style)"](https://github.com/mitalikawde11/tweeter/blob/master/docs/mobile_style.png?raw=true)
 
 
@@ -26,4 +32,6 @@ This repository is the starter code for the project: Students will fork and clon
 ## Dependencies
 
 - Express
+- body-parser
+- chance
 - Node 5.10.x or above
