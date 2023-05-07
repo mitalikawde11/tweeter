@@ -1,8 +1,5 @@
-/*
- * Client-side JS logic goes here 
- * Use (and do all DOM work in) jQuery's document ready function
- */
-
+// Client-side JS logic in jquery and ajax
+ 
 // Create the HTML structure dynamically for the tweet
 const createTweetElement = function(tweetData) {
   let $tweet = $(`
@@ -30,18 +27,18 @@ const createTweetElement = function(tweetData) {
 };
 
 const renderTweets = function(tweets) {
+  $('#tweets-container').empty();
   // loops through tweets
   for (const tweet of tweets) {
     // calls createTweetElement for each tweet
     let $tweetHtml = createTweetElement(tweet);
-    // takes return value and appends it to the tweets container
+    // takes return value and prepends it to the tweets container
     $('#tweets-container').prepend($tweetHtml);
   }
 };
 
 // fetching tweets from '/tweets' page using ajax GET request
 const loadTweets = function () {
-  console.log("loading tweets...");
   $.ajax("/tweets/", { method: "GET" })
   .then(function (tweets) {
     renderTweets(tweets);
@@ -88,13 +85,16 @@ $(document).ready(function() {
     $.ajax({
       method: "POST",
       url: "/tweets",
-      data: $serializedData
+      data: $serializedData,
     })
     .then(function (data) {
       $('#tweet-text').val("");
       $('.counter').val(140)
-      // Refetching tweets on submission of new tweet
       loadTweets();
+    })
+    .fail(function () {
+      const $error = `<p>Something is wrong<p>`;
+      return $error;
     });
   });
 
