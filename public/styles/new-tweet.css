@@ -26,6 +26,7 @@ textarea {
   border: none;
   border-bottom: 3px solid;
   outline: none;
+  word-break: break-all;
   background-color: transparent;
 }
 
